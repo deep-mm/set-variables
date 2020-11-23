@@ -4,7 +4,7 @@ inputs:
   variableFileName:
     description: 'Name of variable file'
     required: true
-    default: ''
+    default: 'variable'
 outputs:
   status: 
     description: "Status"
