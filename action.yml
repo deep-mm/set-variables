@@ -1,0 +1,28 @@
+name: 'Set Variable'
+description: 'Convert variables into environment variables to use in workflow'
+inputs:
+  variableFileName:
+    description: 'Name of variable file'
+    required: true
+    default: ''
+outputs:
+  status: 
+    description: "Status"
+    value: "Pass"
+runs:
+  using: "composite"
+  steps:
+    - run: echo Setting variables from following file ${{ inputs.variableFileName }}.json
+      shell: bash
+
+    - name: Set Environment Variables - ${{ inputs.variableFileName }}.json
+      shell: bash
+      run: |
+        variablePath='.github/variables/${{ inputs.variableFileName }}.json'
+        while read variable; do
+            key=$(jq -r '.name' <<< $variable)
+            value=$(jq -r '.value' <<< $variable)
+            echo $key
+            echo $value
+            echo "$key=$value" >> $GITHUB_ENV
+        done <<< $(jq -c '.variables[]' $variablePath)
