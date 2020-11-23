@@ -1,5 +1,5 @@
 name: 'Set Variable'
-description: 'This action can be used to convert your variables.json file into environment variables to be used within the scope of a job. File must reside in .github/variables'
+description: 'This action can be used to convert your variables.json file in .github/variables into environment variables to be used within the scope of a job.'
 inputs:
   variableFileName:
     description: 'Name of variable file. File must be of format {"variables": [{"name": "variable1","value": "variable1value"}]}'
