@@ -1,6 +1,6 @@
 # GitHub Action - Set Variables
 Are you missing the Azure DevOps Library variable groups in GitHub Actions?
-If yes, then this action will act as a substitution of Library variable groups in GitHub.
+If yes, then this action will act as a substitution of Library variable groups in GitHub. [Currently only supports windows and ubuntu agents]
 
 This is a GitHub Action used to convert variables.json files into environment variables.
 
